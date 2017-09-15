@@ -7,3 +7,4 @@ public class MonsterRunner
 		MonsterController app = new MonsterController();
 		app.start();
 	}
+}
