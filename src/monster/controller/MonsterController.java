@@ -59,10 +59,6 @@ public class MonsterController
 		{
 			System.out.println("I ain't got that many eyes, dude");
 		}
-		else if(currentMonster.getEyeCount() - eyesConsumed == 0);
-		{
-			System.out.println("Wow! Now I have no eyes to see with! Thank you SO much! (No sarcasm there)");
-		}
 		else
 		{
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - eyesConsumed);
