@@ -65,7 +65,7 @@ public class MarshmallowMonster
 	
 	public void setTentacleAmount(double tenacleAmount)
 	{
-		this.tentacleAmount = tentacleAmount;
+		this.tentacleAmount = tentacleAmount; //Has no effect supposedly
 	}
 	
 	public void setBloop(boolean hasBloop)
