@@ -22,7 +22,7 @@ public class MonsterController
 	private void interactWithTheMonster(MarshmallowMonster currentMonster)
 	{
 		System.out.println(currentMonster.getName() + " wants to know what you want to eat");
-		System.out.println(currentMonster.getName() + " suggests arms, he has " + currentMonster.getArmCount());
+		System.out.println(currentMonster.getName() + " suggests arms. He has " + currentMonster.getArmCount());
 		System.out.println("How many do you want to eat?");
 		Scanner myScanner = new Scanner(System.in);
 		int consumed = myScanner.nextInt();
@@ -58,6 +58,10 @@ public class MonsterController
 		else if(eyesConsumed > currentMonster.getArmCount())
 		{
 			System.out.println("I ain't got that many eyes, dude");
+		}
+		else if(currentMonster.getEyeCount() - eyesConsumed == 0);
+		{
+			System.out.println("Wow! Now I have no eyes to see with! Thank you SO much! (No sarcasm there)");
 		}
 		else
 		{
