@@ -37,20 +37,22 @@ public class MonsterController
 	//	System.out.println(currentMonster.getName() + " suggests arms. He has " + currentMonster.getArmCount());
 		popup.displayText(currentMonster.getName() + " suggests arms. He has " + currentMonster.getArmCount());
 	//	System.out.println("How many do you want to eat?");
-		int specialAnswer;
+		int specialAnswer = 0;
 		String unconverted = popup.getResponse("How many do you want to eat?");
 		
-		if(isValidInteger(unconverted))
+		if(isValidInteger(unconverted))		//If
 		{
-			specialAnswer = Integer.parseInt(unconverted);
+			specialAnswer = Integer.parseInt(unconverted);		//Then
 		}
 		
 		Scanner myScanner = new Scanner(System.in);
-		int consumed = myScanner.nextInt();
+		int consumed = 0;
+		consumed = specialAnswer;
 		
 		if(consumed < 0)
 		{
 			System.out.println("You cannot eat a negative amount, silly hooman");
+			consumed = 0;
 		}
 		else if(consumed == 0)
 		{
@@ -86,8 +88,8 @@ public class MonsterController
 			System.out.println("Thank you for making me blind! Now I have " + currentMonster.getEyeCount() + " eyes");
 		}
 		
-		popup.displayText("Hey, look at me!");
-		String answer = popup.getResponse("How many meals are you eating today");
+		popup.displayText("Hey, look at me!");		//Prompts message to pop up
+		String answer = popup.getResponse("How many meals are you eating today");		//Asks question w/ answer field provided
 		System.out.println(answer);
 		popup.displayText("Your answer was " + answer + " meal(s)");
 	
@@ -102,9 +104,9 @@ public class MonsterController
 			Integer.parseInt(sample);
 			valid = true;
 		}
-		catch(NumberFormatException error)
+		catch(NumberFormatException error)		//If an integer is not input...
 		{
-			popup.displayText("Only integer values are accepted: " + sample + " is not");
+			popup.displayText("Only integer values are accepted: " + sample + " is not");		//Text is displayed to explain error
 		}
 			
 			return valid;
@@ -124,6 +126,22 @@ public class MonsterController
 			popup.displayText("Only double values are accepted: " + sampleDouble + " is not");
 		}
 	
+		return valid;
+	}
+	
+	private boolean isValidBoolean(String sampleBoolean)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Boolean.parseBoolean(sampleBoolean);
+			valid = true;
+		}
+		catch (NumberFormatException error)
+		{
+			popup.displayText("Only boolean values are accepted: " + sampleBoolean + " is not");
+		}
 		return valid;
 	}
 }

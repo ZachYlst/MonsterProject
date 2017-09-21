@@ -1,16 +1,16 @@
 package monster.view;
 
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;		//Like GUI
 
 public class MonsterDisplay
 {
 
-	public void displayText(String textToDisplay)
+	public void displayText(String textToDisplay)		//displayText only has 1 button
 	{
 		JOptionPane.showMessageDialog(null, textToDisplay);
 	}
 	
-	public String getResponse(String questionAsked)
+	public String getResponse(String questionAsked)		//getResponse creates 2 buttons
 	{
 		String response = "";
 		
