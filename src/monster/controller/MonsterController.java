@@ -15,6 +15,19 @@ public class MonsterController
 	
 	public void start()
 	{
+	//	boolean finished = true;
+	//	int count = 0;
+	//	while(count < 50)
+	//	{
+	//		popup.displayText("I am so neat! " + count);
+	//		count++;
+	//	}
+		
+	//	for(int loop = 0; loop < 15; loop += 1)
+	//	{
+	//		popup.displayText("I am looping " + (loop + 1) + " times out of 15");
+	//	}
+		
 		MarshmallowMonster sample = new MarshmallowMonster();
 	//	System.out.println(sample);
 		popup.displayText(sample.toString());
@@ -40,10 +53,17 @@ public class MonsterController
 		int specialAnswer = 0;
 		String unconverted = popup.getResponse("How many do you want to eat?");
 		
-		if(isValidInteger(unconverted))		//If
+		while(isValidInteger(unconverted) != true)
+		//or (!isValidInteger(unconverted))
 		{
-			specialAnswer = Integer.parseInt(unconverted);		//Then
+			popup.displayText("Try again!");
+			unconverted = popup.getResponse("How many arms?");
 		}
+		
+	//	if(isValidInteger(unconverted))		//If
+	//	{
+	//		specialAnswer = Integer.parseInt(unconverted);		//Then
+	//	}
 		
 		Scanner myScanner = new Scanner(System.in);
 		int consumed = 0;
@@ -67,8 +87,16 @@ public class MonsterController
 			currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
 			System.out.println("Thank you so much! I only have this many arms now: " + currentMonster.getArmCount());
 		}
-		System.out.println("How many eyes do you want to eat? (I currently have 3)");
+		
+		popup.getResponse("How many eyes do you want to eat? (I currently have 3)");
 		int eyesConsumed = myScanner.nextInt();
+		
+		while(!isValidInteger(unconverted))
+		{
+			popup.displayText("Try again ya weener!");
+			unconverted = popup.getResponse("How many eyes?");
+		}
+		int validInteger = Integer.parseInt(unconverted);
 		
 		if(eyesConsumed == 0)
 		{
